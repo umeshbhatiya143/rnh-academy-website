@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* .clip-path-header-curve {
+  clip-path: ellipse(150% 100% at 50% 100%);
+} */
+
+.slick-slide {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
