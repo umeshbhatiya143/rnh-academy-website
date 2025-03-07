@@ -7,12 +7,12 @@ const testimonials = [
   {
     quote: "My child’s confidence soared after joining the public speaking club!",
     author: "Parent of Class IV",
-    image: "/images/testimonials/parent1.jpg" // Replace with actual image path
+    image: "/images/gallery/FB_IMG_1739204738092.jpg" // Replace with your actual image path
   },
   {
     quote: "The STEAM projects made learning science fun!",
     author: "Class VII Student",
-    image: "/images/testimonials/student1.jpg" // Replace with actual image path
+    image: "/images/gallery/FB_IMG_1739204065378.jpg" // Replace with your actual image path
   }
 ];
 
@@ -29,41 +29,55 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-12 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center text-3xl md:text-4xl font-serif font-bold text-primary mb-10"
+          className="text-center text-3xl md:text-4xl font-serif font-bold text-primary mb-16"
         >
           What Our Community Says
         </motion.h2>
-        <Slider {...settings}>
-          {testimonials.map((item, index) => (
-            <div key={index} className="flex justify-center px-4">
-              <div className="bg-white p-6 rounded-xl shadow-lg max-w-xl flex flex-col md:flex-row items-center">
-                <div className="w-24 h-24 md:w-32 md:h-32 relative rounded-full overflow-hidden border-4 border-primary mr-4 mb-4 md:mb-0">
-                  <Image
-                    src={item.image}
-                    alt={item.author}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-lg md:text-xl font-medium text-gray-800 mb-2">
+        <div className="testimonials-slider-container">
+          <Slider {...settings}>
+            {testimonials.map((item, index) => (
+              <div key={index} className="flex items-center justify-center h-[350px] px-4">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className="bg-white rounded-2xl p-8 shadow-2xl max-w-xl w-full flex flex-col items-center space-y-6"
+                >
+                  {/* Gradient Border Wrapper */}
+                  <div className="relative w-24 h-24 md:w-28 md:h-28 p-1 rounded-full bg-gradient-to-r from-red-500 to-red-300 shadow-lg">
+                    <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
+                      <Image
+                        src={item.image}
+                        alt={item.author}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-center text-lg md:text-xl font-medium text-gray-800 italic">
                     “{item.quote}”
                   </p>
-                  <p className="text-sm md:text-base text-gray-600">
+                  <p className="text-center text-sm md:text-base text-gray-600 font-semibold">
                     – {item.author}
                   </p>
-                </div>
+                </motion.div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
+      <style jsx global>{`
+        .testimonials-slider-container .slick-slide {
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+        }
+      `}</style>
     </section>
   );
 }
