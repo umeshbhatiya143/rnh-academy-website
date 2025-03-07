@@ -13,6 +13,7 @@ import ClassUpgradationBanner from '@/components/Homepage/ClassUpgradationBanner
 import TestimonialsCarousel from '@/components/Homepage/TestimonialsCarousel';
 import UpcomingEvents from '@/components/Homepage/UpcomingEvents';
 import QuickFacts from '@/components/Homepage/QuickFacts';
+import PhotoGalleryPreview from '@/components/Homepage/Gallery';
 
 export default function Home() {
   const features = [
@@ -42,25 +43,27 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      
+
       {/* Hero Section */}
       <HeroSlider />
 
       {/* Features Section */}
-      <Features/>
+      <Features />
 
       {/* Activities Section */}
-      <Activities/>
+      <Activities />
 
       {/* Upgradation Banner */}
       <ClassUpgradationBanner />
+
+      <PhotoGalleryPreview />
 
       <TestimonialsCarousel />
 
       <UpcomingEvents />
 
-      <QuickFacts/>
-      
+      <QuickFacts />
+
     </main>
   );
 }
