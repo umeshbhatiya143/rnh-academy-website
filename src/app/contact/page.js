@@ -15,33 +15,35 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      // Hero Section
-      <section className="relative h-64 md:h-96 bg-gradient-to-br from-primary to-primary-dark overflow-hidden">
-        {/* Animated Background Elements */}
+      <section className="relative h-64 md:h-96 bg-gradient-to-br from-primary to-[#B91C1C] overflow-hidden">
+        {/* Background Elements */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="absolute inset-0"
         >
-          <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-2xl" />
-          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-2xl" />
+          <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 rounded-full blur-2xl" />
+          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-white/5 rounded-full blur-2xl" />
         </motion.div>
 
-        {/* Floating Circles Animation */}
+        {/* Floating Circles */}
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
+            className="absolute w-4 h-4 bg-white/20 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`
+            }}
             initial={{ y: 0, x: Math.random() * 100 - 50 }}
-            animate={{ y: [0, 100, 0], x: [0, Math.random() * 50 - 25, 0] }}
+            animate={{
+              y: [0, 100, 0],
+              x: [0, Math.random() * 50 - 25, 0]
+            }}
             transition={{
               duration: 8 + Math.random() * 4,
               repeat: Infinity,
               ease: "easeInOut"
-            }}
-            className="absolute w-4 h-4 bg-white/10 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
             }}
           />
         ))}
@@ -51,7 +53,7 @@ export default function ContactPage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-serif text-white mb-4 px-4"
+            className="text-4xl md:text-6xl font-serif text-white mb-4 px-4 drop-shadow-lg"
           >
             Let's Connect
           </motion.h1>
@@ -60,19 +62,19 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-white/90 max-w-2xl px-4"
+            className="text-lg md:text-xl text-white/90 max-w-2xl px-4 mb-8"
           >
-            Reach out to us - we're here to answer your questions and guide you through every step
+            Reach out to us - we're here to answer your questions
           </motion.p>
 
-          {/* Animated Scroll Indicator */}
+          {/* Scroll Indicator */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="absolute bottom-8 flex flex-col items-center"
+            className="absolute bottom-8"
           >
-            <div className="animate-bounce w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
+            <div className="animate-bounce w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
               <ChevronDownIcon className="w-6 h-6 text-white" />
             </div>
           </motion.div>
