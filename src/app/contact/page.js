@@ -55,7 +55,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-serif text-white mb-4 px-4 drop-shadow-lg"
           >
-            Let's Connect
+            Let&apos;s Connect
           </motion.h1>
 
           <motion.p
@@ -64,7 +64,7 @@ export default function ContactPage() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-white/90 max-w-2xl px-4 mb-8"
           >
-            Reach out to us - we're here to answer your questions
+            Reach out to us - we&apos;re here to answer your questions
           </motion.p>
 
           {/* Scroll Indicator */}

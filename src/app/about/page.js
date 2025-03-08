@@ -141,13 +141,13 @@ export default function AboutPage() {
             className="space-y-4"
           >
             <h2 className="text-2xl md:text-3xl font-serif text-primary">
-              From the Principal's Desk
+              From the Principal&apos;s Desk
             </h2>
             <p className="text-gray-600">
-              "At R.N.H Academy, we blend traditional values with modern teaching 
+            &quot;At R.N.H Academy, we blend traditional values with modern teaching 
               methodologies to create an environment where every child can thrive. 
               Our focus on holistic development ensures students grow into confident, 
-              compassionate individuals ready to face future challenges."
+              compassionate individuals ready to face future challenges.&quot;
             </p>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
               <iframe 
