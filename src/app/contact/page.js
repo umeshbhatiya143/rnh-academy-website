@@ -134,37 +134,21 @@ export default function ContactPage() {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary to-primary-dark text-white py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity shadow-lg text-lg"
+                className="w-full bg-gradient-to-r from-primary to-[#B91C1C] text-white py-4 rounded-xl font-semibold hover:scale-[1.02] transition-transform shadow-lg shadow-primary/30 text-lg relative overflow-hidden group"
               >
-                Send Message
+                <span className="relative z-10">Send Message</span>
+                <div className="absolute inset-0 bg-white/10 group-hover:bg-white/5 transition-colors" />
               </button>
             </form>
 
-            {/* Contact Details Card */}
-            <div className="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-200">
-              <h3 className="text-xl font-serif text-primary mb-4">Direct Contact</h3>
-              <div className="space-y-3">
-                <p className="text-gray-700">
-                  📍 Near Jail Road, Danopur<br />
-                  Uttar Pradesh - 274001
-                </p>
-                <p className="text-gray-700">
-                  📞 Admissions: +91 96958 99410<br />
-                  General: +91 98765 43210
-                </p>
-                <p className="text-gray-700">
-                  ✉️ admissions@rnhacademy.com<br />
-                  info@rnhacademy.com
-                </p>
-              </div>
-            </div>
           </motion.div>
 
-          {/* Google Maps Section */}
+          {/*  Modified Google Maps Section */}
+          {/* Modified Google Maps Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="h-[800px] rounded-2xl shadow-xl overflow-hidden border border-gray-100"
+            className="h-96 md:h-[600px] rounded-2xl shadow-xl overflow-hidden border border-gray-100"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d114279.0401255325!2d83.70639651240022!3d26.480860350738435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3993c55e1cdcb3b9%3A0x37a90d21cb3c9451!2sJail%20Road%2C%20Near%2C%20Salempur%20Rd%2C%20Danopur%2C%20Uttar%20Pradesh%20274001!3m2!1d26.480884!2d83.788798!5e0!3m2!1sen!2sin!4v1741389750606!5m2!1sen!2sin"
@@ -174,6 +158,45 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
+          </motion.div>
+        </div>
+
+        {/* Contact Details Card - Now properly aligned */}
+        <div className=" mt-10 md:col-span-2"> {/* Spans full width on all screens */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl mx-auto p-8 bg-gray-50 rounded-2xl shadow-lg border border-gray-200"
+          >
+            <h3 className="text-2xl font-serif text-primary mb-6 text-center">
+              Direct Contact
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6 text-center md:text-left">
+              <div className="space-y-3">
+                <div className="text-gray-700">
+                  <span className="block font-medium mb-1">📍 Address</span>
+                  Near Jail Road, Danopur<br />
+                  Uttar Pradesh - 274001
+                </div>
+                <div className="text-gray-700">
+                  <span className="block font-medium mb-1">📞 Phone</span>
+                  Admissions: +91 96958 99410<br />
+                  General: +91 98765 43210
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div className="text-gray-700">
+                  <span className="block font-medium mb-1">✉️ Email</span>
+                  admissions@rnhacademy.com<br />
+                  info@rnhacademy.com
+                </div>
+                <div className="text-gray-700">
+                  <span className="block font-medium mb-1">⏰ Office Hours</span>
+                  Mon-Sat: 8AM - 5PM<br />
+                  Sunday: Closed
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
