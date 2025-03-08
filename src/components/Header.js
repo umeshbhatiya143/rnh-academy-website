@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { 
+import {
   Bars3Icon,
   XMarkIcon,
   AcademicCapIcon,
@@ -11,18 +11,21 @@ import {
   ChatBubbleLeftIcon
 } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation'; // Next.js 13+ hook for current path
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname(); // Get current URL path
 
+  // Define navigation items. Mark the active item based on pathname.
   const navigation = [
-    { name: 'About', href: '#', icon: <AcademicCapIcon className="w-5 h-5" /> },
-    { name: 'Academics', href: '#', icon: <BookOpenIcon className="w-5 h-5" /> },
-    { name: 'Admissions', href: '#', icon: <UserGroupIcon className="w-5 h-5" /> },
-    { name: 'Facilities', href: '#', icon: <BuildingLibraryIcon className="w-5 h-5" /> },
-    { name: 'Gallery', href: '#', icon: <PhotoIcon className="w-5 h-5" /> },
-    { name: 'Contact', href: '#', icon: <ChatBubbleLeftIcon className="w-5 h-5" /> },
+    { name: 'About', href: '/about', icon: <AcademicCapIcon className="w-5 h-5" />, current: pathname === '/about' },
+    { name: 'Academics', href: '/academics', icon: <BookOpenIcon className="w-5 h-5" />, current: pathname === '/academics' },
+    { name: 'Admissions', href: '/admissions', icon: <UserGroupIcon className="w-5 h-5" />, current: pathname === '/admissions' },
+    { name: 'Facilities', href: '/facilities', icon: <BuildingLibraryIcon className="w-5 h-5" />, current: pathname === '/facilities' },
+    { name: 'Gallery', href: '/gallery', icon: <PhotoIcon className="w-5 h-5" />, current: pathname === '/gallery' },
+    { name: 'Contact', href: '/contact', icon: <ChatBubbleLeftIcon className="w-5 h-5" />, current: pathname === '/contact' },
   ];
 
   // Scroll effect fix
@@ -30,19 +33,18 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Hamburger menu animation fix
+  // Hamburger menu animation variants
   const menuVariants = {
-    open: { 
+    open: {
       opacity: 1,
       y: 0,
       transition: { type: "spring", stiffness: 300, damping: 24 }
     },
-    closed: { 
+    closed: {
       opacity: 0,
       y: "-100%",
       transition: { duration: 0.2 }
@@ -54,21 +56,21 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo Section */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-3"
-          >
-            <div className="bg-gradient-to-br from-primary to-red-600 p-3 rounded-full shadow-lg">
+          <a href="/" className="flex items-center space-x-3">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="bg-gradient-to-br from-primary to-red-600 p-3 rounded-full shadow-lg"
+            >
               <AcademicCapIcon className="h-6 w-6 text-white" />
-            </div>
+            </motion.div>
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-primary font-serif">R.N.H Academy</span>
               <span className="text-xs text-gray-600 mt-[-4px]">
                 Reaching The New Horizon Academy
               </span>
             </div>
-          </motion.div>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
@@ -86,13 +88,16 @@ export default function Header() {
                   className="p-2 bg-primary/10 rounded-full transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-red-500"
                   whileHover={{ rotate: 15 }}
                 >
-                  {React.cloneElement(item.icon, { 
-                    className: "w-5 h-5 text-primary group-hover:text-white" 
+                  {React.cloneElement(item.icon, {
+                    className: "w-5 h-5 text-primary group-hover:text-white"
                   })}
                 </motion.div>
                 <span className="text-gray-700 font-medium relative transition-colors duration-300 group-hover:text-primary">
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-red-500 transition-all duration-300 group-hover:w-full" />
+                  {/* Underline: Always visible if current; otherwise, only on hover */}
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-red-500 transition-all duration-300 ${item.current ? 'w-full' : 'w-0 group-hover:w-full'}`}
+                  />
                 </span>
               </motion.a>
             ))}
@@ -113,7 +118,7 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile Menu Fix */}
+      {/* Mobile Menu */}
       <motion.div
         initial={false}
         animate={isOpen ? "open" : "closed"}
