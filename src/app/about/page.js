@@ -397,7 +397,7 @@ export default function AboutPage() {
             </h2>
 
             <p className="text-gray-700 text-lg">
-              "At R.N.H Academy, we blend traditional values with modern teaching methodologies to create an environment where every child can thrive. Our focus on holistic development ensures students grow into confident, compassionate individuals ready to face future challenges."
+            &quot;At R.N.H Academy, we blend traditional values with modern teaching methodologies to create an environment where every child can thrive. Our focus on holistic development ensures students grow into confident, compassionate individuals ready to face future challenges.&quot;
             </p>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-md">
               <iframe
@@ -527,7 +527,7 @@ export default function AboutPage() {
             Join the R.N.H Academy Family
           </motion.h2>
           <p className="mb-8 text-base md:text-lg">
-            If you're looking for a school that provides a nurturing environment,
+            If you&apos;re looking for a school that provides a nurturing environment,
             academic excellence, and opportunities for growth, we invite you to join our community.
             Get in touch with us to schedule a visit.
           </p>
