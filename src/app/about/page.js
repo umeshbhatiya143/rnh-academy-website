@@ -66,39 +66,39 @@ export default function AboutPage() {
       </section>
 
       {/* About the Academy */}
-<section className="py-12 md:py-16 bg-white">
-  <div className="max-w-5xl px-4 mx-auto text-center">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      {/* Heading Container */}
-      <div className="flex flex-col items-center mb-4">
-        <h2 className="text-[26px] sm:text-3xl md:text-4xl font-serif font-bold text-[#DC2626] leading-snug">
-          Our Legacy of Excellence
-        </h2>
-      </div>
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-5xl px-4 mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Heading Container */}
+            <div className="flex flex-col items-center mb-4">
+              <h2 className="text-[26px] sm:text-3xl md:text-4xl font-serif font-bold text-[#DC2626] leading-snug">
+                Our Legacy of Excellence
+              </h2>
+            </div>
 
-      {/* Animated Underline */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        transition={{ duration: 1 }}
-        className="h-1 bg-gradient-to-r from to-red-600 mx-auto rounded-full mb-6
+            {/* Animated Underline */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 1 }}
+              className="h-1 bg-gradient-to-r from to-red-600 mx-auto rounded-full mb-6
                    w-full max-w-[10rem] sm:max-w-[12rem] md:max-w-[14rem]"
-      />
+            />
 
-      {/* Description Paragraph */}
-      <p className="text-gray-700 text-base sm:text-lg max-w-3xl mx-auto px-4">
-        Nestled in a serene environment near Danopur, Deoria, R.N.H Academy stands as a beacon
-        of excellence in education. With a rich legacy of 8+ years, we’ve grown from humble
-        beginnings into a thriving community of learners while providing personalized attention
-        to each student.
-      </p>
-    </motion.div>
-  </div>
-</section>
+            {/* Description Paragraph */}
+            <p className="text-gray-700 text-base sm:text-lg max-w-3xl mx-auto px-4">
+              Nestled in a serene environment near Danopur, Deoria, R.N.H Academy stands as a beacon
+              of excellence in education. With a rich legacy of 8+ years, we’ve grown from humble
+              beginnings into a thriving community of learners while providing personalized attention
+              to each student.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
 
       {/* Our Journey Timeline with Decorative Line */}
@@ -424,7 +424,7 @@ export default function AboutPage() {
             Meet Our Faculty
           </motion.h2>
 
-         
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {faculty.map((member, index) => (
               <motion.div

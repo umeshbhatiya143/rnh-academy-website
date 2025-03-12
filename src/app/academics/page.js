@@ -1,28 +1,25 @@
-// app/academics/page.js
 'use client';
-
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { 
   BookOpenIcon,
   BeakerIcon,
-  CalculatorIcon,
   SwatchIcon,
+  CalculatorIcon,
   AcademicCapIcon
 } from '@heroicons/react/24/outline';
+import OurJourney from '@components/OurJourney';
 
 export default function AcademicsPage() {
-  const themeColor = '#DC2626'; // Primary color
-  const accentColor = '#FEE2E2'; // Light red for backgrounds
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-64 md:h-96 bg-gradient-to-br from-primary to-[#B91C1C]">
+      <section className="relative h-64 md:h-96 bg-gradient-to-br from-[#DC2626] to-[#B91C1C] overflow-hidden">
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             className="text-center"
           >
             <AcademicCapIcon className="h-16 w-16 text-white mx-auto mb-6" />
@@ -36,23 +33,28 @@ export default function AcademicsPage() {
         </div>
       </section>
 
+      {/* Our Journey Timeline */}
+<OurJourney />      
+
       {/* Playgroup Section */}
       <section className="py-16 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="max-w-6xl mx-auto bg-gradient-to-br from-white to-[#FEE2E2] rounded-2xl shadow-xl p-8"
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto bg-gradient-to-br from-white to-red-100 rounded-2xl shadow-xl p-8"
         >
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 bg-primary/10 rounded-xl">
-              <BookOpenIcon className="h-8 w-8 text-primary" />
+            <div className="p-4 bg-[#DC2626]/10 rounded-xl">
+              <BookOpenIcon className="h-8 w-8 text-[#DC2626]" />
             </div>
-            <h2 className="text-3xl font-serif text-primary">Playgroup Program</h2>
+            <h2 className="text-3xl font-serif text-[#DC2626]">Playgroup Program</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
+            {/* Daily Schedule */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-[#DC2626] pb-2">
                 Daily Schedule
               </h3>
               <div className="space-y-4">
@@ -67,14 +69,15 @@ export default function AcademicsPage() {
                     className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm"
                   >
                     <span className="text-gray-600">{item.time}</span>
-                    <span className="font-medium text-primary">{item.activity}</span>
+                    <span className="font-medium text-[#DC2626]">{item.activity}</span>
                   </motion.div>
                 ))}
               </div>
             </div>
 
+            {/* Learning Goals */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-[#DC2626] pb-2">
                 Learning Goals
               </h3>
               <ul className="space-y-4">
@@ -88,8 +91,8 @@ export default function AcademicsPage() {
                     whileHover={{ scale: 1.02 }}
                     className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm"
                   >
-                    <div className="h-8 w-8 bg-primary/10 rounded-full flex items-center justify-center">
-                      <span className="text-primary">✓</span>
+                    <div className="h-8 w-8 bg-[#DC2626]/10 rounded-full flex items-center justify-center">
+                      <span className="text-[#DC2626]">✓</span>
                     </div>
                     <span className="text-gray-600">{goal}</span>
                   </motion.li>
@@ -100,22 +103,24 @@ export default function AcademicsPage() {
         </motion.div>
       </section>
 
-      {/* Primary School Section */}
-      <section className="py-16 bg-primary/5">
+      {/* [#DC2626] School Section */}
+      <section className="py-16 bg-[#DC2626]/5">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
           className="max-w-6xl mx-auto px-4"
         >
-          <div className="bg-gradient-to-r from-primary to-[#B91C1C] rounded-2xl shadow-xl p-8">
+          <div className="bg-gradient-to-r from-[#DC2626] to-[#B91C1C] rounded-2xl shadow-xl p-8">
             <div className="flex items-center gap-4 mb-8">
               <div className="p-4 bg-white/10 rounded-xl">
                 <CalculatorIcon className="h-8 w-8 text-white" />
               </div>
-              <h2 className="text-3xl font-serif text-white">Primary (I - V)</h2>
+              <h2 className="text-3xl font-serif text-white">[#DC2626] (I - V)</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
+              {/* Core Curriculum */}
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-white/90 border-b-2 border-white/30 pb-2">
                   Core Curriculum
@@ -133,6 +138,7 @@ export default function AcademicsPage() {
                 </div>
               </div>
 
+              {/* Special Programs */}
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-white/90 border-b-2 border-white/30 pb-2">
                   Special Programs
@@ -164,18 +170,20 @@ export default function AcademicsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-8 border-2 border-primary/10"
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-8 border-2 border-[#DC2626]/10"
         >
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 bg-primary/10 rounded-xl">
-              <BeakerIcon className="h-8 w-8 text-primary" />
+            <div className="p-4 bg-[#DC2626]/10 rounded-xl">
+              <BeakerIcon className="h-8 w-8 text-[#DC2626]" />
             </div>
-            <h2 className="text-3xl font-serif text-primary">Middle School (VI - VIII)</h2>
+            <h2 className="text-3xl font-serif text-[#DC2626]">Middle School (VI - VIII)</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
+            {/* Lab Facilities */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-[#DC2626] pb-2">
                 Lab Facilities
               </h3>
               <div className="grid grid-cols-2 gap-4">
@@ -183,17 +191,18 @@ export default function AcademicsPage() {
                   <motion.div
                     key={lab}
                     whileHover={{ scale: 1.03 }}
-                    className="p-4 bg-primary/5 rounded-lg text-center hover:bg-primary/10 transition-colors"
+                    className="p-4 bg-[#DC2626]/5 rounded-lg text-center hover:bg-[#DC2626]/10 transition-colors"
                   >
-                    <BeakerIcon className="h-6 w-6 text-primary mx-auto mb-2" />
+                    <BeakerIcon className="h-6 w-6 text-[#DC2626] mx-auto mb-2" />
                     <span className="text-gray-700">{lab}</span>
                   </motion.div>
                 ))}
               </div>
             </div>
 
+            {/* Competitive Edge */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-[#DC2626] pb-2">
                 Competitive Edge
               </h3>
               <div className="space-y-4">
@@ -210,9 +219,9 @@ export default function AcademicsPage() {
                   <motion.div
                     key={index}
                     whileHover={{ x: 5 }}
-                    className="p-4 bg-primary/5 rounded-lg border-l-4 border-primary"
+                    className="p-4 bg-[#DC2626]/5 rounded-lg border-l-4 border-[#DC2626]"
                   >
-                    <h4 className="font-semibold text-primary mb-2">{item.title}</h4>
+                    <h4 className="font-semibold text-[#DC2626] mb-2">{item.title}</h4>
                     <p className="text-gray-600">{item.content}</p>
                   </motion.div>
                 ))}
@@ -223,23 +232,25 @@ export default function AcademicsPage() {
       </section>
 
       {/* Class X Preview Section */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 to-primary/10">
+      <section className="py-16 bg-gradient-to-br from-[#DC2626]/5 to-[#DC2626]/10">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
           className="max-w-6xl mx-auto px-4"
         >
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="flex items-center gap-4 mb-8">
-              <div className="p-4 bg-primary/10 rounded-xl">
-                <SwatchIcon className="h-8 w-8 text-primary" />
+              <div className="p-4 bg-[#DC2626]/10 rounded-xl">
+                <SwatchIcon className="h-8 w-8 text-[#DC2626]" />
               </div>
-              <h2 className="text-3xl font-serif text-primary">Class X Preview</h2>
+              <h2 className="text-3xl font-serif text-[#DC2626]">Class X Preview</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
+              {/* Subject Portfolio */}
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-[#DC2626] pb-2">
                   Subject Portfolio
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -247,7 +258,7 @@ export default function AcademicsPage() {
                     <motion.div
                       key={subject}
                       whileHover={{ scale: 1.03 }}
-                      className="p-3 bg-primary/5 rounded-lg text-center hover:bg-primary/10 transition-colors"
+                      className="p-3 bg-[#DC2626]/5 rounded-lg text-center hover:bg-[#DC2626]/10 transition-colors"
                     >
                       {subject}
                     </motion.div>
@@ -255,8 +266,9 @@ export default function AcademicsPage() {
                 </div>
               </div>
 
+              {/* Exam Preparation */}
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-[#DC2626] pb-2">
                   Exam Preparation
                 </h3>
                 <div className="space-y-4">
@@ -267,10 +279,10 @@ export default function AcademicsPage() {
                     <motion.div
                       key={index}
                       whileHover={{ x: 5 }}
-                      className="flex items-center gap-4 p-4 bg-primary/5 rounded-lg"
+                      className="flex items-center gap-4 p-4 bg-[#DC2626]/5 rounded-lg"
                     >
-                      <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <span className="text-primary font-bold">{item.step}</span>
+                      <div className="h-12 w-12 bg-[#DC2626]/10 rounded-lg flex items-center justify-center">
+                        <span className="text-[#DC2626] font-bold">{item.step}</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-800">{item.title}</h4>
