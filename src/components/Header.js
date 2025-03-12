@@ -47,7 +47,7 @@ export default function Header() {
     },
     closed: {
       opacity: 0,
-      y: "-100%",
+      y: "-150%",
       transition: { duration: 0.2 }
     }
   };

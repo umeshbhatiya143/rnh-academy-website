@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { 
+import {
   BookOpenIcon,
   BeakerIcon,
   SwatchIcon,
@@ -34,7 +34,7 @@ export default function AcademicsPage() {
       </section>
 
       {/* Our Journey Timeline */}
-<OurJourney />      
+      <OurJourney />
 
       {/* Playgroup Section */}
       <section className="py-16 px-4">
@@ -116,7 +116,7 @@ export default function AcademicsPage() {
               <div className="p-4 bg-white/10 rounded-xl">
                 <CalculatorIcon className="h-8 w-8 text-white" />
               </div>
-              <h2 className="text-3xl font-serif text-white">[#DC2626] (I - V)</h2>
+              <h2 className="text-3xl font-serif text-white">Primary (I - V)</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
