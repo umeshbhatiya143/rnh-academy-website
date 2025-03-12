@@ -1,10 +1,13 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx}"],
+  content: [
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}"
+  ],
   theme: {
     extend: {
       colors: {
-        primary: "#DC2626",
-        'primary-dark': '#B91C1C'
+        'primary': "#DC2626",
+        'primary-dark': '#B91C1C',
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"],

@@ -7,225 +7,282 @@ import {
   BookOpenIcon,
   BeakerIcon,
   CalculatorIcon,
-  SwatchIcon // Changed from PaletteIcon to SwatchIcon
-} from '@heroicons/react/24/outline'; // Ensure correct import path
-
+  SwatchIcon,
+  AcademicCapIcon
+} from '@heroicons/react/24/outline';
 
 export default function AcademicsPage() {
+  const themeColor = '#DC2626'; // Primary color
+  const accentColor = '#FEE2E2'; // Light red for backgrounds
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-64 md:h-96 bg-gray-100">
-        <Image
-          src="/academics-hero.jpg"
-          alt="Students in classroom"
-          fill
-          className="object-cover"
-          priority
-        />
+      <section className="relative h-64 md:h-96 bg-gradient-to-br from-primary to-[#B91C1C]">
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <h1 className="text-3xl md:text-5xl text-white font-serif text-center">
-            Academic Excellence
-          </h1>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center"
+          >
+            <AcademicCapIcon className="h-16 w-16 text-white mx-auto mb-6" />
+            <h1 className="text-4xl md:text-6xl text-white font-serif mb-4">
+              Academic Excellence
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto px-4">
+              Nurturing Minds Through Innovative Learning Approaches
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Playgroup Section */}
-      <section className="py-12 px-4 md:py-16">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif text-primary mb-6 flex items-center gap-3">
+      <section className="py-16 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="max-w-6xl mx-auto bg-gradient-to-br from-white to-[#FEE2E2] rounded-2xl shadow-xl p-8"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <div className="p-4 bg-primary/10 rounded-xl">
               <BookOpenIcon className="h-8 w-8 text-primary" />
-              Playgroup Program
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Daily Schedule</h3>
-                <div className="space-y-3 text-gray-600">
-                  <div className="flex justify-between py-2 border-b">
-                    <span>9:00 - 9:30 AM</span>
-                    <span>Arrival & Free Play</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b">
-                    <span>9:30 - 10:00 AM</span>
-                    <span>Circle Time</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b">
-                    <span>10:00 - 10:45 AM</span>
-                    <span>Learning Activity</span>
-                  </div>
-                </div>
-              </div>
+            </div>
+            <h2 className="text-3xl font-serif text-primary">Playgroup Program</h2>
+          </div>
 
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Learning Goals</h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    Develop social skills through group activities
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    Enhance fine motor skills with art & craft
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    Introduction to basic concepts through play
-                  </li>
-                </ul>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                Daily Schedule
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { time: '9:00 - 9:30 AM', activity: 'Arrival & Free Play' },
+                  { time: '9:30 - 10:00 AM', activity: 'Circle Time' },
+                  { time: '10:00 - 10:45 AM', activity: 'Learning Activity' }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ x: 5 }}
+                    className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm"
+                  >
+                    <span className="text-gray-600">{item.time}</span>
+                    <span className="font-medium text-primary">{item.activity}</span>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </motion.div>
-        </div>
+
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                Learning Goals
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  'Social Skills Development',
+                  'Fine Motor Skills Enhancement',
+                  'Foundational Concept Introduction'
+                ].map((goal, index) => (
+                  <motion.li
+                    key={index}
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm"
+                  >
+                    <div className="h-8 w-8 bg-primary/10 rounded-full flex items-center justify-center">
+                      <span className="text-primary">✓</span>
+                    </div>
+                    <span className="text-gray-600">{goal}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Primary School Section */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif text-primary mb-8 flex items-center gap-3">
-              <CalculatorIcon className="h-8 w-8 text-primary" />
-              Primary (I - V)
-            </h2>
+      <section className="py-16 bg-primary/5">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="max-w-6xl mx-auto px-4"
+        >
+          <div className="bg-gradient-to-r from-primary to-[#B91C1C] rounded-2xl shadow-xl p-8">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-4 bg-white/10 rounded-xl">
+                <CalculatorIcon className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="text-3xl font-serif text-white">Primary (I - V)</h2>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Core Subjects</h3>
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-white/90 border-b-2 border-white/30 pb-2">
+                  Core Curriculum
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {['Mathematics', 'English', 'Science', 'Social Studies', 'Hindi', 'Computer Basics'].map((subject) => (
-                    <div key={subject} className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
-                      <span className="text-primary">•</span>
+                    <motion.div
+                      key={subject}
+                      whileHover={{ scale: 1.05 }}
+                      className="p-3 bg-white/10 rounded-lg text-center text-white hover:bg-white/20 transition-colors"
+                    >
                       {subject}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Foundational Focus</h3>
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-white/90 border-b-2 border-white/30 pb-2">
+                  Special Programs
+                </h3>
                 <div className="space-y-4">
-                  <div className="p-4 bg-primary/10 rounded-lg">
-                    <h4 className="font-semibold text-primary mb-2">Literacy Program</h4>
-                    <p className="text-gray-600">Daily reading sessions with leveled readers</p>
-                  </div>
-                  <div className="p-4 bg-primary/10 rounded-lg">
-                    <h4 className="font-semibold text-primary mb-2">Math Lab</h4>
-                    <p className="text-gray-600">Hands-on activities for conceptual understanding</p>
-                  </div>
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="p-4 bg-white/10 rounded-lg"
+                  >
+                    <h4 className="font-semibold text-white mb-2">Literacy Program</h4>
+                    <p className="text-white/80">Daily reading sessions with leveled readers</p>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="p-4 bg-white/10 rounded-lg"
+                  >
+                    <h4 className="font-semibold text-white mb-2">Math Lab</h4>
+                    <p className="text-white/80">Hands-on conceptual learning activities</p>
+                  </motion.div>
                 </div>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Middle School Section */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif text-primary mb-8 flex items-center gap-3">
+      <section className="py-16 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-8 border-2 border-primary/10"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <div className="p-4 bg-primary/10 rounded-xl">
               <BeakerIcon className="h-8 w-8 text-primary" />
-              Middle School (VI - VIII)
-            </h2>
+            </div>
+            <h2 className="text-3xl font-serif text-primary">Middle School (VI - VIII)</h2>
+          </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Lab Activities</h3>
-                <div className="space-y-4">
-                  {['Physics Lab', 'Chemistry Lab', 'Biology Lab', 'Computer Lab'].map((lab) => (
-                    <div key={lab} className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
-                      <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <BeakerIcon className="h-6 w-6 text-primary" />
-                      </div>
-                      <span className="font-medium">{lab}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Olympiad Prep</h3>
-                <div className="space-y-4">
-                  <div className="p-4 bg-primary/5 rounded-lg border-l-4 border-primary">
-                    <h4 className="font-semibold mb-2">SOF Olympiads</h4>
-                    <p className="text-gray-600">Weekly practice sessions for IMO, NSO, IEO</p>
-                  </div>
-                  <div className="p-4 bg-primary/5 rounded-lg border-l-4 border-primary">
-                    <h4 className="font-semibold mb-2">NTSE Foundation</h4>
-                    <p className="text-gray-600">Stage-wise preparation from Class VI</p>
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                Lab Facilities
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                {['Physics Lab', 'Chemistry Lab', 'Biology Lab', 'Computer Lab'].map((lab) => (
+                  <motion.div
+                    key={lab}
+                    whileHover={{ scale: 1.03 }}
+                    className="p-4 bg-primary/5 rounded-lg text-center hover:bg-primary/10 transition-colors"
+                  >
+                    <BeakerIcon className="h-6 w-6 text-primary mx-auto mb-2" />
+                    <span className="text-gray-700">{lab}</span>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </motion.div>
-        </div>
+
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                Competitive Edge
+              </h3>
+              <div className="space-y-4">
+                {[
+                  {
+                    title: 'SOF Olympiads',
+                    content: 'Weekly sessions for IMO, NSO, IEO'
+                  },
+                  {
+                    title: 'NTSE Foundation',
+                    content: 'Structured preparation from Class VI'
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ x: 5 }}
+                    className="p-4 bg-primary/5 rounded-lg border-l-4 border-primary"
+                  >
+                    <h4 className="font-semibold text-primary mb-2">{item.title}</h4>
+                    <p className="text-gray-600">{item.content}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
-      {/* Class X Preview */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif text-primary mb-8 flex items-center gap-3">
-              <SwatchIcon  className="h-8 w-8 text-primary" />
-              Class X Preview
-            </h2>
+      {/* Class X Preview Section */}
+      <section className="py-16 bg-gradient-to-br from-primary/5 to-primary/10">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="max-w-6xl mx-auto px-4"
+        >
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-4 bg-primary/10 rounded-xl">
+                <SwatchIcon className="h-8 w-8 text-primary" />
+              </div>
+              <h2 className="text-3xl font-serif text-primary">Class X Preview</h2>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Subjects Offered</h3>
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                  Subject Portfolio
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {['Mathematics', 'Science', 'Social Science', 'English', 'Hindi', 'Computer Applications'].map((subject) => (
-                    <div key={subject} className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
-                      <span className="text-primary">•</span>
+                    <motion.div
+                      key={subject}
+                      whileHover={{ scale: 1.03 }}
+                      className="p-3 bg-primary/5 rounded-lg text-center hover:bg-primary/10 transition-colors"
+                    >
                       {subject}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Board Exam Strategy</h3>
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-gray-800 border-b-2 border-primary pb-2">
+                  Exam Preparation
+                </h3>
                 <div className="space-y-4">
-                  <div className="flex gap-4">
-                    <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <span className="font-semibold text-primary">1</span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">Monthly Tests</h4>
-                      <p className="text-gray-600">Full-length practice exams</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <span className="font-semibold text-primary">2</span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">Doubt Classes</h4>
-                      <p className="text-gray-600">Weekly Q&A sessions</p>
-                    </div>
-                  </div>
+                  {[
+                    { step: '1', title: 'Monthly Tests', desc: 'Full-length practice exams' },
+                    { step: '2', title: 'Doubt Classes', desc: 'Weekly Q&A sessions' }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-4 p-4 bg-primary/5 rounded-lg"
+                    >
+                      <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <span className="text-primary font-bold">{item.step}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800">{item.title}</h4>
+                        <p className="text-gray-600">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   );
